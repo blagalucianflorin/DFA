@@ -38,7 +38,9 @@ string
 climits
 -
 
-/home/lblaga/CLionProjects/DFA/sources/LNFA.cpp
-../headers/LNFA.h
+/home/lblaga/CLionProjects/DFA/main.cpp
+iostream
+-
+headers/LNFA.h
 /home/lblaga/CLionProjects/DFA/headers/LNFA.h
 

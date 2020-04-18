@@ -67,7 +67,7 @@ Character_already_exists::Character_already_exists (char character)
 Character_does_not_exist::Character_does_not_exist (char character)
 {
     this -> character = character;
-    this -> message = "FaException::Character_already_exists: Character ('";
+    this -> message = "FaException::Character_does_not_exist: Character ('";
     this -> message += character;
     this -> message += "') does not exist in the alphabet.\n";
 }

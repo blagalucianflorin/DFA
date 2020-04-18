@@ -4,7 +4,7 @@
 
 #include "../headers/LNFA.h"
 
-std::vector <int> LNFA::lambda_closure (int start_state)
+std::vector <int> LNFA::lambda_closure (int start_state) noexcept (false)
 {
     std::vector <int> result;
     std::vector <int> state_queue;
@@ -58,5 +58,62 @@ void LNFA::add_transition (int start_state, char transition_character, int end_s
         }
     }
     this -> transitions . emplace_back (start_state, transition_character, end_state);
+}
+
+bool LNFA::accepts (std::string input_word) noexcept (false)
+{
+    std::vector <int> current_states;
+    std::vector <int> old_states;
+    int current_size;
+
+    if (get_initial_state () == INT_MIN)
+    {
+        throw (FaException::Initial_state_not_set ());
+    }
+    if (get_final_states () . empty ())
+    {
+        throw (FaException::No_final_states ());
+    }
+
+    current_states . push_back (this -> get_initial_state ());
+    while (input_word . length () != 0 || current_states != old_states)
+    {
+        old_states = current_states;
+
+        current_size = current_states . size ();
+        for (int i = 0; i < current_size; i++)
+            for (int new_state : lambda_closure (current_states[i]))
+                if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
+                    current_states . push_back (new_state);
+
+        if (input_word . length () != 0)
+        {
+            if (std::find (this -> get_alphabet () . begin (), this -> get_alphabet () . end (), input_word[0]) ==
+                this -> get_alphabet () . end ())
+            {
+                throw (FaException::Character_does_not_exist (input_word[0]));
+            }
+            current_size = current_states . size ();
+            for (int i = 0; i < current_size; i++)
+                for (int new_state : delta (current_states[i], input_word[0]))
+                    if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
+                        current_states . push_back (new_state);
+        }
+
+        current_size = current_states . size ();
+        for (int i = 0; i < current_size; i++)
+            for (int new_state : lambda_closure (current_states[i]))
+                if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
+                    current_states . push_back (new_state);
+
+        if (input_word . length () != 0)
+            input_word = input_word . substr (1, input_word . length () - 1);
+        std::sort (current_states . begin (), current_states . end ());
+    }
+    for (int i : current_states)
+        for (int j : this -> get_final_states ())
+            if (i == j)
+                return (true);
+    return (false);
 }
 

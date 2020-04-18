@@ -9,7 +9,8 @@
 
 class NFA : public DFA
 {
-private:
+
+protected:
     std::vector <int> delta (int start_state, char transition_character) noexcept (false);
 
 public:
