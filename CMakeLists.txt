@@ -3,4 +3,4 @@ project(DFA)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DFA main.cpp sources/DFA.cpp headers/DFA.h headers/exceptions/faExceptions.h sources/exceptions/faExceptions.cpp)
+add_executable(DFA main.cpp sources/DFA.cpp headers/DFA.h headers/exceptions/faExceptions.h sources/exceptions/faExceptions.cpp headers/NFA.h sources/NFA.cpp)

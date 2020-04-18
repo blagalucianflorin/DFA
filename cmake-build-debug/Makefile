@@ -177,6 +177,33 @@ sources/DFA.cpp.s:
 	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/DFA.cpp.s
 .PHONY : sources/DFA.cpp.s
 
+sources/NFA.o: sources/NFA.cpp.o
+
+.PHONY : sources/NFA.o
+
+# target to build an object file
+sources/NFA.cpp.o:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/NFA.cpp.o
+.PHONY : sources/NFA.cpp.o
+
+sources/NFA.i: sources/NFA.cpp.i
+
+.PHONY : sources/NFA.i
+
+# target to preprocess a source file
+sources/NFA.cpp.i:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/NFA.cpp.i
+.PHONY : sources/NFA.cpp.i
+
+sources/NFA.s: sources/NFA.cpp.s
+
+.PHONY : sources/NFA.s
+
+# target to generate assembly for a file
+sources/NFA.cpp.s:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/NFA.cpp.s
+.PHONY : sources/NFA.cpp.s
+
 sources/exceptions/faExceptions.o: sources/exceptions/faExceptions.cpp.o
 
 .PHONY : sources/exceptions/faExceptions.o
@@ -219,6 +246,9 @@ help:
 	@echo "... sources/DFA.o"
 	@echo "... sources/DFA.i"
 	@echo "... sources/DFA.s"
+	@echo "... sources/NFA.o"
+	@echo "... sources/NFA.i"
+	@echo "... sources/NFA.s"
 	@echo "... sources/exceptions/faExceptions.o"
 	@echo "... sources/exceptions/faExceptions.i"
 	@echo "... sources/exceptions/faExceptions.s"

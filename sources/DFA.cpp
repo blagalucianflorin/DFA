@@ -333,7 +333,6 @@ bool DFA::accepts (std::string input_word) noexcept (false)
                     this -> final_states . end ()));
 }
 
-#ifdef DEBUG
 void DFA::display ()
 {
     std::cout << "[DEBUG DISPLAY]" << std::endl;
@@ -362,4 +361,3 @@ void DFA::display ()
                   << std::get <2> (transition) << ")" << std::endl;
     std::cout << "[END DEBUG DISPLAY]" << std::endl << std::endl;
 }
-#endif

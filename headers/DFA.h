@@ -10,16 +10,13 @@
 #include <string>
 #include <algorithm>
 #include <climits>
-
-#ifdef DEBUG
 #include <iostream>
-#endif
 
 #include "exceptions/faExceptions.h"
 
 class DFA
 {
-private:
+protected:
     std::vector <int> states;
     std::vector <char> alphabet;
     std::vector <int> final_states;
@@ -66,7 +63,7 @@ public:
     void remove_final_state (int old_final_state) noexcept (false);
 
 
-    void add_transition (int start_state, char transition_character, int end_state) noexcept (false);
+    virtual void add_transition (int start_state, char transition_character, int end_state) noexcept (false);
 
     std::vector <std::tuple <int, char, int>> get_transitions () const;
 
@@ -84,7 +81,7 @@ public:
     void reset_initial_state ();
 
 
-    /**
+    virtual /**
      *
      * Determines if a word is <b>accepted</b> by the automate or not.
      *
@@ -103,9 +100,7 @@ public:
      */
     bool accepts (std::string input_word) noexcept (false);
 
-#ifdef DEBUG
     void display ();
-#endif
 };
 
 #endif //DFA_DFA_H

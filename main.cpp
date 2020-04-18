@@ -2,25 +2,26 @@
 
 #define DEBUG
 
-#include "headers/DFA.h"
+#include "headers/NFA.h"
+//#include "headers/DFA.h"
 
 int main ()
 {
-    DFA my_dfa;
-    std::string input_word = "abc";
+    NFA my_nfa;
+    std::string input_word = "aabaaaaaaaaaaabaaaab";
 
-    my_dfa . add_state ({0, 1, 2, 3});
-    my_dfa . add_character ({'a', 'b', 'c'});
-    my_dfa . add_final_state ({0, 3});
-    my_dfa . set_initial_state (0);
-    my_dfa . add_transition (0, 'a', 1);
-    my_dfa . add_transition (1, 'b', 2);
-    my_dfa . add_transition (2, 'c', 3);
-    my_dfa . add_transition (3, 'a', 0);
+    my_nfa . add_state ({0, 1});
+    my_nfa . add_character ({'a', 'b'});
+    my_nfa . set_initial_state (0);
+    my_nfa . add_final_state ({1});
 
-    my_dfa . delete_transition (1, 'b', 2);
+    my_nfa . add_transition (0, 'a', 1);
+    my_nfa . add_transition (0, 'b', 0);
+    my_nfa . add_transition (0, 'a', 0);
 
-    std::cout << my_dfa . accepts (input_word);
+    std::cout << my_nfa . accepts (input_word) << std::endl;
+
+    my_nfa . DFA::display ();
 
     return (0);
 }
