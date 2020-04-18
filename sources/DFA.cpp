@@ -7,10 +7,10 @@
 
 DFA::DFA (const DFA &old_dfa)
 {
-    this -> states = std::move (old_dfa . get_states ());
-    this -> alphabet = std::move (old_dfa . get_alphabet ());
-    this -> final_states = std::move (old_dfa . get_final_states ());
-    this -> transitions = std::move (old_dfa . get_transitions ());
+    this -> states = old_dfa . get_states ();
+    this -> alphabet = old_dfa . get_alphabet ();
+    this -> final_states = old_dfa . get_final_states ();
+    this -> transitions = old_dfa . get_transitions ();
     this -> initial_state = old_dfa . get_initial_state ();
 }
 
@@ -43,9 +43,9 @@ void DFA::add_state (const std::vector <int> &new_states) noexcept (false)
         this -> add_state (new_state);
 }
 
-std::vector <int> DFA::get_states () const
+const std::vector <int> & DFA::get_states () const
 {
-    return (std::vector <int> (this -> states));
+    return (this -> states);
 }
 
 void DFA::delete_state (const int old_state) noexcept (false)
@@ -87,9 +87,9 @@ void DFA::add_character (const std::vector <char> &new_characters) noexcept (fal
         this -> add_character (new_character);
 }
 
-std::vector <char> DFA::get_alphabet () const
+const std::vector <char> & DFA::get_alphabet () const
 {
-    return (std::vector <char> (this -> alphabet));
+    return (this -> alphabet);
 }
 
 void DFA::delete_character (const char old_character) noexcept (false)
@@ -137,9 +137,9 @@ void DFA::add_final_state (const std::vector <int> &new_final_states) noexcept (
         this -> add_final_state (new_final_state);
 }
 
-std::vector <int> DFA::get_final_states () const
+const std::vector <int> & DFA::get_final_states () const
 {
-    return (std::vector <int> (this -> final_states));
+    return (this -> final_states);
 }
 
 bool DFA::is_final_state (const int my_state) const
@@ -194,9 +194,9 @@ void DFA::add_transition (int start_state, char transition_character, int end_st
     this -> transitions . emplace_back (start_state, transition_character, end_state);
 }
 
-std::vector <std::tuple <int, char, int>> DFA::get_transitions () const
+const std::vector <std::tuple <int, char, int>> & DFA::get_transitions () const
 {
-    return (std::vector <std::tuple <int, char, int>> (this -> transitions));
+    return (this -> transitions);
 }
 
 void DFA::delete_transition (int start_state, char transition_character, int end_state) noexcept (false)
@@ -269,7 +269,7 @@ void DFA::delete_transition (int state) noexcept (false)
 }
 
 
-int DFA::get_initial_state () const
+const int & DFA::get_initial_state () const
 {
     return (this -> initial_state);
 }

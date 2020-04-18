@@ -38,7 +38,7 @@ public:
 
     void add_state (const std::vector <int> &new_states) noexcept (false);
 
-    std::vector <int> get_states () const;
+    const std::vector <int> &get_states () const;
 
     void delete_state (int old_state) noexcept (false);
 
@@ -47,7 +47,7 @@ public:
 
     void add_character (const std::vector <char> &new_characters) noexcept (false);
 
-    std::vector <char> get_alphabet () const;
+    const std::vector <char> &get_alphabet () const;
 
     void delete_character (char old_character) noexcept (false);
 
@@ -56,7 +56,7 @@ public:
 
     void add_final_state (const std::vector <int> &new_final_states) noexcept (false);
 
-    std::vector <int> get_final_states () const;
+    const std::vector <int> &get_final_states () const;
 
     bool is_final_state (int my_state) const;
 
@@ -65,7 +65,7 @@ public:
 
     virtual void add_transition (int start_state, char transition_character, int end_state) noexcept (false);
 
-    std::vector <std::tuple <int, char, int>> get_transitions () const;
+    const std::vector <std::tuple <int, char, int>> &get_transitions () const;
 
     void delete_transition (int start_state, char transition_character, int end_state) noexcept (false);
 
@@ -74,14 +74,14 @@ public:
     void delete_transition (int state) noexcept (false);
 
 
-    int get_initial_state () const;
+    const int &get_initial_state () const;
 
     void set_initial_state (int new_initial_state) noexcept (false);
 
     void reset_initial_state ();
 
 
-    virtual /**
+    /**
      *
      * Determines if a word is <b>accepted</b> by the automate or not.
      *
@@ -98,7 +98,7 @@ public:
      * @return Returns <b>true</b> if the word if accepted by the automate and <b>false</b> if it is not.
      *
      */
-    bool accepts (std::string input_word) noexcept (false);
+    virtual bool accepts (std::string input_word) noexcept (false);
 
     void display ();
 };
