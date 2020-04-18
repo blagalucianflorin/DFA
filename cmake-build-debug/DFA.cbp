@@ -87,6 +87,9 @@
 		<Unit filename="/home/lblaga/CLionProjects/DFA/headers/DFA.h">
 			<Option target="DFA"/>
 		</Unit>
+		<Unit filename="/home/lblaga/CLionProjects/DFA/headers/LNFA.h">
+			<Option target="DFA"/>
+		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/headers/NFA.h">
 			<Option target="DFA"/>
 		</Unit>
@@ -97,6 +100,9 @@
 			<Option target="DFA"/>
 		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/sources/DFA.cpp">
+			<Option target="DFA"/>
+		</Unit>
+		<Unit filename="/home/lblaga/CLionProjects/DFA/sources/LNFA.cpp">
 			<Option target="DFA"/>
 		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/sources/NFA.cpp">

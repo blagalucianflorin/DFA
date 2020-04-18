@@ -3,12 +3,25 @@
 
 CMakeFiles/DFA.dir/main.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/DFA.h
+ /home/lblaga/CLionProjects/DFA/headers/LNFA.h
+ /home/lblaga/CLionProjects/DFA/headers/NFA.h
  /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
  /home/lblaga/CLionProjects/DFA/main.cpp
 CMakeFiles/DFA.dir/sources/DFA.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/DFA.h
  /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
  /home/lblaga/CLionProjects/DFA/sources/DFA.cpp
+CMakeFiles/DFA.dir/sources/LNFA.cpp.o
+ /home/lblaga/CLionProjects/DFA/headers/DFA.h
+ /home/lblaga/CLionProjects/DFA/headers/LNFA.h
+ /home/lblaga/CLionProjects/DFA/headers/NFA.h
+ /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
+ /home/lblaga/CLionProjects/DFA/sources/LNFA.cpp
+CMakeFiles/DFA.dir/sources/NFA.cpp.o
+ /home/lblaga/CLionProjects/DFA/headers/DFA.h
+ /home/lblaga/CLionProjects/DFA/headers/NFA.h
+ /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
+ /home/lblaga/CLionProjects/DFA/sources/NFA.cpp
 CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
  /home/lblaga/CLionProjects/DFA/sources/exceptions/faExceptions.cpp

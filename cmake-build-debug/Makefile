@@ -177,6 +177,33 @@ sources/DFA.cpp.s:
 	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/DFA.cpp.s
 .PHONY : sources/DFA.cpp.s
 
+sources/LNFA.o: sources/LNFA.cpp.o
+
+.PHONY : sources/LNFA.o
+
+# target to build an object file
+sources/LNFA.cpp.o:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/LNFA.cpp.o
+.PHONY : sources/LNFA.cpp.o
+
+sources/LNFA.i: sources/LNFA.cpp.i
+
+.PHONY : sources/LNFA.i
+
+# target to preprocess a source file
+sources/LNFA.cpp.i:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/LNFA.cpp.i
+.PHONY : sources/LNFA.cpp.i
+
+sources/LNFA.s: sources/LNFA.cpp.s
+
+.PHONY : sources/LNFA.s
+
+# target to generate assembly for a file
+sources/LNFA.cpp.s:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/LNFA.cpp.s
+.PHONY : sources/LNFA.cpp.s
+
 sources/NFA.o: sources/NFA.cpp.o
 
 .PHONY : sources/NFA.o
@@ -246,6 +273,9 @@ help:
 	@echo "... sources/DFA.o"
 	@echo "... sources/DFA.i"
 	@echo "... sources/DFA.s"
+	@echo "... sources/LNFA.o"
+	@echo "... sources/LNFA.i"
+	@echo "... sources/LNFA.s"
 	@echo "... sources/NFA.o"
 	@echo "... sources/NFA.i"
 	@echo "... sources/NFA.s"

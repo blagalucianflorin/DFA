@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DFA.dir/main.cpp.o"
   "CMakeFiles/DFA.dir/sources/DFA.cpp.o"
+  "CMakeFiles/DFA.dir/sources/LNFA.cpp.o"
   "CMakeFiles/DFA.dir/sources/NFA.cpp.o"
   "CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o"
   "DFA"

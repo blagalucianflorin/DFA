@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lblaga/CLionProjects/DFA/main.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/main.cpp.o"
   "/home/lblaga/CLionProjects/DFA/sources/DFA.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/DFA.cpp.o"
+  "/home/lblaga/CLionProjects/DFA/sources/LNFA.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/LNFA.cpp.o"
   "/home/lblaga/CLionProjects/DFA/sources/NFA.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/NFA.cpp.o"
   "/home/lblaga/CLionProjects/DFA/sources/exceptions/faExceptions.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o"
   )
