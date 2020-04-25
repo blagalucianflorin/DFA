@@ -30,9 +30,9 @@ public:
 
     DFA () = default;
 
-    ~DFA () = default;
+    virtual ~DFA () = default;
 
-    DFA (const DFA &old_dfa);
+//    DFA (const DFA &old_dfa);
 
 
     void add_state (int new_state) noexcept (false);

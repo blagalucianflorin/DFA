@@ -22,7 +22,7 @@ public:
 
     bool accepts (std::string input_word) noexcept (false) override;
 
-    DFA &to_DFA ();
+    DFA *to_DFA ();
 };
 
 #endif //DFA_LNFA_H

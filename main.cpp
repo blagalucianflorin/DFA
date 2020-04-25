@@ -5,7 +5,7 @@
 #include "headers/LNFA.h"
 #include "headers/regGrammar.h"
 
-RegGrammar &read_grammar_from_file (const char *file_name)
+RegGrammar *read_grammar_from_file (const char *file_name)
 {
     std::ifstream fin;
     std::string line;
@@ -47,10 +47,10 @@ RegGrammar &read_grammar_from_file (const char *file_name)
     }
     fin . close ();
 
-    return (*ret_grammar);
+    return (ret_grammar);
 }
 
-LNFA &read_LNFA_from_file (const char *file_name)
+LNFA *read_LNFA_from_file (const char *file_name)
 {
     auto ret_lnfa = new LNFA ();
     std::ifstream fin;
@@ -95,13 +95,13 @@ LNFA &read_LNFA_from_file (const char *file_name)
     }
     fin . close ();
 
-    return (*ret_lnfa);
+    return (ret_lnfa);
 }
 
 int main ()
 {
     /* Acceptare cuvant in gramatica regulata */
-    RegGrammar my_regGrammar;
+    RegGrammar *my_regGrammar;
     std::vector <std::string> regGrammarTests;
 
     regGrammarTests = {
@@ -117,19 +117,23 @@ int main ()
 
     std::cout << "\n[Start Regular Grammar test]\n";
     for (const std::string &test : regGrammarTests)
-        std::cout << test << ": " << my_regGrammar . accepts (test) << "\n";
+        std::cout << test << ": " << my_regGrammar -> accepts (test) << "\n";
     std::cout << "[End Regular Grammar test]\n\n";
 
 
     /* Conversie LNFA in DFA */
-    DFA my_dfa;
-    LNFA my_lnfa;
+    DFA *my_dfa;
+    LNFA *my_lnfa;
 
     my_lnfa = read_LNFA_from_file ("lnfa1.input");
 
-    my_lnfa . display ();
-    my_dfa = my_lnfa . to_DFA ();
-    my_dfa . display ();
+    my_lnfa -> display ();
+    my_dfa = my_lnfa -> to_DFA ();
+    my_dfa -> display ();
+
+    delete my_dfa;
+    delete my_lnfa;
+    delete my_regGrammar;
 
     return (0);
 }

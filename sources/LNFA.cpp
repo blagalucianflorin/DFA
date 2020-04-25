@@ -124,7 +124,7 @@ bool LNFA::accepts (std::string input_word) noexcept (false)
     return (false);
 }
 
-DFA &LNFA::to_DFA ()
+DFA *LNFA::to_DFA ()
 {
     if (this -> get_initial_state () == INT_MIN)
     {
@@ -271,7 +271,7 @@ DFA &LNFA::to_DFA ()
 
     // Add the new transitions to the DFA
     for (auto &i : DFA_table)
-        for (int j = 1; j < i . size (); j++)
+        for (long unsigned int j = 1; j < i . size (); j++)
             if (i[j] != -1)
                 DFA_transitions . emplace_back (i[0], this -> get_alphabet ()[j - 1], i[j]);
 
@@ -283,6 +283,6 @@ DFA &LNFA::to_DFA ()
     for (std::tuple <int, char, int> transition : DFA_transitions)
         ret_dfa -> add_transition (std::get <0> (transition), std::get <1> (transition), std::get <2> (transition));
 
-    return (*ret_dfa);
+    return (ret_dfa);
 }
 

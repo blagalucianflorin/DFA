@@ -55,6 +55,8 @@ int max (int a, int b)
 bool RegGrammar::accepts (std::string input_word)
 {
     LNFA my_lnfa;
+    DFA *my_dfa;
+    bool response;
 
     for (char curr_char : this -> get_symbols ())
         my_lnfa . add_state (((int) curr_char) - 65);
@@ -71,5 +73,9 @@ bool RegGrammar::accepts (std::string input_word)
         my_lnfa . add_transition (((int) std::get <0> (production)) - 65, std::get <1> (production),
                                   (max (((int) std::get <2> (production)) - 65, -1)));
 
-    return (my_lnfa . to_DFA () . accepts (std::move (input_word)));
+    my_dfa = my_lnfa . to_DFA ();
+    response = my_dfa -> accepts (std::move (input_word));
+    delete my_dfa;
+
+    return (response);
 }

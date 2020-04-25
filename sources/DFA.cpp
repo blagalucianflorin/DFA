@@ -4,15 +4,15 @@
 
 #include "../headers/DFA.h"
 
-
-DFA::DFA (const DFA &old_dfa)
-{
-    this -> states = old_dfa . get_states ();
-    this -> alphabet = old_dfa . get_alphabet ();
-    this -> final_states = old_dfa . get_final_states ();
-    this -> transitions = old_dfa . get_transitions ();
-    this -> initial_state = old_dfa . get_initial_state ();
-}
+//
+//DFA::DFA (const DFA &old_dfa)
+//{
+//    this -> states = old_dfa . get_states ();
+//    this -> alphabet = old_dfa . get_alphabet ();
+//    this -> final_states = old_dfa . get_final_states ();
+//    this -> transitions = old_dfa . get_transitions ();
+//    this -> initial_state = old_dfa . get_initial_state ();
+//}
 
 DFA::DFA (std::vector <int> states, std::vector <char> alphabet, std::vector <int> final_states,
           std::vector <std::tuple <int, char, int>> transitions, int initial_state)
