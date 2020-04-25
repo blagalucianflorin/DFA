@@ -268,8 +268,7 @@ void DFA::delete_transition (int state) noexcept (false)
                     this -> transitions . end ());
 }
 
-
-const int & DFA::get_initial_state () const
+const int &DFA::get_initial_state () const noexcept (false)
 {
     return (this -> initial_state);
 }

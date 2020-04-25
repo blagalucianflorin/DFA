@@ -19,8 +19,18 @@ climits
 -
 iostream
 -
+set
+-
 exceptions/faExceptions.h
 /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
+
+/home/lblaga/CLionProjects/DFA/headers/LNFA.h
+NFA.h
+/home/lblaga/CLionProjects/DFA/headers/NFA.h
+
+/home/lblaga/CLionProjects/DFA/headers/NFA.h
+DFA.h
+/home/lblaga/CLionProjects/DFA/headers/DFA.h
 
 /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
 exception
@@ -30,7 +40,9 @@ string
 climits
 -
 
-/home/lblaga/CLionProjects/DFA/sources/DFA.cpp
-../headers/DFA.h
-/home/lblaga/CLionProjects/DFA/headers/DFA.h
+/home/lblaga/CLionProjects/DFA/main.cpp
+iostream
+-
+headers/LNFA.h
+/home/lblaga/CLionProjects/DFA/headers/LNFA.h
 

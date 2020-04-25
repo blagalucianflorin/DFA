@@ -21,6 +21,8 @@ public:
     void add_transition (int start_state, char transition_character, int end_state) noexcept (false) override;
 
     bool accepts (std::string input_word) noexcept (false) override;
+
+    DFA &to_DFA ();
 };
 
 #endif //DFA_LNFA_H

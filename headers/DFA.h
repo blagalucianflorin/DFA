@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <climits>
 #include <iostream>
+#include <set>
 
 #include "exceptions/faExceptions.h"
 
