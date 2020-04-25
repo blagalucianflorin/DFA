@@ -82,24 +82,9 @@ public:
     void reset_initial_state ();
 
 
-    /**
-     *
-     * Determines if a word is <b>accepted</b> by the automate or not.
-     *
-     * @param input_word : A std::string word which will be tested in the automate. Must be composed only of characters
-     * present in the alphabet.
-     *
-     * @throws FaException::Initial_state_not_set : If the initial state has not been set.
-     *
-     * @throws FaException::No_final_states : If no final states have been added.
-     *
-     * @throws FaException::Character_does_not_exist : If any character in the input word is not
-     * present in the alphabet.
-     *
-     * @return Returns <b>true</b> if the word if accepted by the automate and <b>false</b> if it is not.
-     *
-     */
     virtual bool accepts (std::string input_word) noexcept (false);
+
+    void reset ();
 
     void display ();
 };

@@ -5,6 +5,7 @@ CMakeFiles/DFA.dir/main.cpp.o: ../headers/DFA.h
 CMakeFiles/DFA.dir/main.cpp.o: ../headers/LNFA.h
 CMakeFiles/DFA.dir/main.cpp.o: ../headers/NFA.h
 CMakeFiles/DFA.dir/main.cpp.o: ../headers/exceptions/faExceptions.h
+CMakeFiles/DFA.dir/main.cpp.o: ../headers/regGrammar.h
 CMakeFiles/DFA.dir/main.cpp.o: ../main.cpp
 
 CMakeFiles/DFA.dir/sources/DFA.cpp.o: ../headers/DFA.h
@@ -24,4 +25,11 @@ CMakeFiles/DFA.dir/sources/NFA.cpp.o: ../sources/NFA.cpp
 
 CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o: ../headers/exceptions/faExceptions.h
 CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o: ../sources/exceptions/faExceptions.cpp
+
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../headers/DFA.h
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../headers/LNFA.h
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../headers/NFA.h
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../headers/exceptions/faExceptions.h
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../headers/regGrammar.h
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o: ../sources/regGrammar.cpp
 

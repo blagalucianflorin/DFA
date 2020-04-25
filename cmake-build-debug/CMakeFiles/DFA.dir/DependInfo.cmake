@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lblaga/CLionProjects/DFA/sources/LNFA.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/LNFA.cpp.o"
   "/home/lblaga/CLionProjects/DFA/sources/NFA.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/NFA.cpp.o"
   "/home/lblaga/CLionProjects/DFA/sources/exceptions/faExceptions.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o"
+  "/home/lblaga/CLionProjects/DFA/sources/regGrammar.cpp" "/home/lblaga/CLionProjects/DFA/cmake-build-debug/CMakeFiles/DFA.dir/sources/regGrammar.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

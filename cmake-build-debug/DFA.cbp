@@ -96,6 +96,9 @@
 		<Unit filename="/home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h">
 			<Option target="DFA"/>
 		</Unit>
+		<Unit filename="/home/lblaga/CLionProjects/DFA/headers/regGrammar.h">
+			<Option target="DFA"/>
+		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/main.cpp">
 			<Option target="DFA"/>
 		</Unit>
@@ -109,6 +112,9 @@
 			<Option target="DFA"/>
 		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/sources/exceptions/faExceptions.cpp">
+			<Option target="DFA"/>
+		</Unit>
+		<Unit filename="/home/lblaga/CLionProjects/DFA/sources/regGrammar.cpp">
 			<Option target="DFA"/>
 		</Unit>
 		<Unit filename="/home/lblaga/CLionProjects/DFA/CMakeLists.txt">

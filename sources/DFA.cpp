@@ -360,3 +360,12 @@ void DFA::display ()
                   << std::get <2> (transition) << ")" << std::endl;
     std::cout << "[END DEBUG DISPLAY]" << std::endl << std::endl;
 }
+
+void DFA::reset ()
+{
+    this -> states . clear ();
+    this -> final_states . clear ();
+    this -> alphabet . clear ();
+    this -> transitions . clear ();
+    this -> initial_state = INT_MIN;
+}

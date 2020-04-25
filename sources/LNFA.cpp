@@ -65,6 +65,7 @@ bool LNFA::accepts (std::string input_word) noexcept (false)
     std::vector <int> current_states;
     std::vector <int> old_states;
     int current_size;
+    bool found_transition;
 
     if (get_initial_state () == INT_MIN)
     {
@@ -76,15 +77,16 @@ bool LNFA::accepts (std::string input_word) noexcept (false)
     }
 
     current_states . push_back (this -> get_initial_state ());
-    while (input_word . length () != 0 || current_states != old_states)
+    while ((input_word . length () != 0 || current_states != old_states) && !current_states . empty ())
     {
+        found_transition = false;
         old_states = current_states;
 
         current_size = current_states . size ();
         for (int i = 0; i < current_size; i++)
             for (int new_state : lambda_closure (current_states[i]))
                 if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
-                    current_states . push_back (new_state);
+                    current_states . push_back (new_state), found_transition = true;
 
         if (input_word . length () != 0)
         {
@@ -97,39 +99,29 @@ bool LNFA::accepts (std::string input_word) noexcept (false)
             for (int i = 0; i < current_size; i++)
                 for (int new_state : delta (current_states[i], input_word[0]))
                     if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
-                        current_states . push_back (new_state);
+                        current_states . push_back (new_state), found_transition = true;
         }
 
         current_size = current_states . size ();
         for (int i = 0; i < current_size; i++)
             for (int new_state : lambda_closure (current_states[i]))
                 if (std::count (current_states . begin (), current_states . end (), new_state) == 0)
-                    current_states . push_back (new_state);
+                    current_states . push_back (new_state), found_transition = true;
 
         if (input_word . length () != 0)
+        {
+            if (!found_transition)
+                return false;
             input_word = input_word . substr (1, input_word . length () - 1);
+        }
         std::sort (current_states . begin (), current_states . end ());
     }
+
     for (int i : current_states)
         for (int j : this -> get_final_states ())
             if (i == j)
                 return (true);
     return (false);
-}
-
-// Debug only
-void print_conversion_table (std::vector <std::vector <std::set <int>>> &conversion_table)
-{
-    for (std::vector <std::set <int>> &row : conversion_table)
-    {
-        for (std::set <int> &cell : row)
-        {
-            for (int state : cell)
-                std::cout << state << ", ";
-            std::cout << " | ";
-        }
-        std::cout << std::endl;
-    }
 }
 
 DFA &LNFA::to_DFA ()
@@ -156,11 +148,12 @@ DFA &LNFA::to_DFA ()
     std::vector <std::set <int>> cells_queue;
     std::set <int> curr_state_cell;
     std::vector <std::vector <int>> DFA_table;
-    std::vector <int> new_DFA_table_row;
+    std::vector <int> DFA_table_row;
     std::set <std::pair <std::set <int>, int>> new_state_numbers_set;
     std::set <int> DFA_final_states_set;
     int new_state_number;
 
+    // Generate the first row of the table
     DFA_initial_state = 0;
     new_state_number = 0;
     for (int curr_state : lambda_closure (this -> get_initial_state ()))
@@ -194,7 +187,10 @@ DFA &LNFA::to_DFA ()
     }
     conversion_table . push_back (new_row);
 
-    while (!(cells_queue . empty ()))
+    // Generate the rest of the table
+
+    // While new state groups were found
+    while (!cells_queue . empty ())
     {
         new_row . clear ();
         curr_state_cell = cells_queue[0];
@@ -232,40 +228,33 @@ DFA &LNFA::to_DFA ()
         }
     }
 
-    print_conversion_table (conversion_table);
-
+    // Assign new names (a single number) for the obtained state groups
     for (std::vector <std::set <int>> &row : conversion_table)
     {
-        new_DFA_table_row . clear ();
+        DFA_table_row . clear ();
         for (std::set <int> &cell : row)
         {
             if (!cell . empty ())
             {
                 for (const std::pair <std::set <int>, int> &new_state_number_cell : new_state_numbers_set)
-                {
                     if (new_state_number_cell . first == cell)
                     {
-                        new_DFA_table_row . push_back (new_state_number_cell . second);
+                        DFA_table_row . push_back (new_state_number_cell . second);
                         break;
                     }
-                }
             }
+            else
+                DFA_table_row . push_back (-1);
         }
-        DFA_table . push_back (new_DFA_table_row);
+        DFA_table . push_back (DFA_table_row);
     }
 
-    std::cout << std::endl;
-    for (std::vector <int> &row : DFA_table)
-    {
-        for (int cell : row)
-            std::cout << cell << " | ";
-        std::cout << std::endl;
-    }
-
+    // Add the newly obtained states to the DFA
     DFA_states . reserve (new_state_numbers_set . size ());
     for (const std::pair <std::set <int>, int> &new_state_number_cell : new_state_numbers_set)
         DFA_states . push_back (new_state_number_cell . second);
 
+    // Add the final states to the DFA
     for (const std::set <int> &curr_cell : all_cells_set)
         for (int curr_state : curr_cell)
             for (int curr_final_state : this -> get_final_states ())
@@ -280,16 +269,20 @@ DFA &LNFA::to_DFA ()
     for (int curr_state : DFA_final_states_set)
         DFA_final_states . push_back (curr_state);
 
+    // Add the new transitions to the DFA
     for (auto &i : DFA_table)
         for (int j = 1; j < i . size (); j++)
-            DFA_transitions . emplace_back (i[0], this -> get_alphabet ()[j - 1], i[j]);
+            if (i[j] != -1)
+                DFA_transitions . emplace_back (i[0], this -> get_alphabet ()[j - 1], i[j]);
 
+    // Build the return DFA
     ret_dfa -> add_state (DFA_states);
     ret_dfa -> add_character (this -> get_alphabet ());
     ret_dfa -> add_final_state (DFA_final_states);
     ret_dfa -> set_initial_state (DFA_initial_state);
     for (std::tuple <int, char, int> transition : DFA_transitions)
         ret_dfa -> add_transition (std::get <0> (transition), std::get <1> (transition), std::get <2> (transition));
+
     return (*ret_dfa);
 }
 

@@ -6,6 +6,7 @@ CMakeFiles/DFA.dir/main.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/LNFA.h
  /home/lblaga/CLionProjects/DFA/headers/NFA.h
  /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
+ /home/lblaga/CLionProjects/DFA/headers/regGrammar.h
  /home/lblaga/CLionProjects/DFA/main.cpp
 CMakeFiles/DFA.dir/sources/DFA.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/DFA.h
@@ -25,3 +26,10 @@ CMakeFiles/DFA.dir/sources/NFA.cpp.o
 CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.o
  /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
  /home/lblaga/CLionProjects/DFA/sources/exceptions/faExceptions.cpp
+CMakeFiles/DFA.dir/sources/regGrammar.cpp.o
+ /home/lblaga/CLionProjects/DFA/headers/DFA.h
+ /home/lblaga/CLionProjects/DFA/headers/LNFA.h
+ /home/lblaga/CLionProjects/DFA/headers/NFA.h
+ /home/lblaga/CLionProjects/DFA/headers/exceptions/faExceptions.h
+ /home/lblaga/CLionProjects/DFA/headers/regGrammar.h
+ /home/lblaga/CLionProjects/DFA/sources/regGrammar.cpp

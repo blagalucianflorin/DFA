@@ -40,9 +40,19 @@ string
 climits
 -
 
-/home/lblaga/CLionProjects/DFA/main.cpp
-iostream
+/home/lblaga/CLionProjects/DFA/headers/regGrammar.h
+string
 -
-headers/LNFA.h
+vector
+-
+tuple
+-
+LNFA.h
 /home/lblaga/CLionProjects/DFA/headers/LNFA.h
+
+/home/lblaga/CLionProjects/DFA/sources/regGrammar.cpp
+../headers/regGrammar.h
+/home/lblaga/CLionProjects/DFA/headers/regGrammar.h
+utility
+-
 

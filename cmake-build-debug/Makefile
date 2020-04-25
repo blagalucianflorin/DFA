@@ -258,6 +258,33 @@ sources/exceptions/faExceptions.cpp.s:
 	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/exceptions/faExceptions.cpp.s
 .PHONY : sources/exceptions/faExceptions.cpp.s
 
+sources/regGrammar.o: sources/regGrammar.cpp.o
+
+.PHONY : sources/regGrammar.o
+
+# target to build an object file
+sources/regGrammar.cpp.o:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/regGrammar.cpp.o
+.PHONY : sources/regGrammar.cpp.o
+
+sources/regGrammar.i: sources/regGrammar.cpp.i
+
+.PHONY : sources/regGrammar.i
+
+# target to preprocess a source file
+sources/regGrammar.cpp.i:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/regGrammar.cpp.i
+.PHONY : sources/regGrammar.cpp.i
+
+sources/regGrammar.s: sources/regGrammar.cpp.s
+
+.PHONY : sources/regGrammar.s
+
+# target to generate assembly for a file
+sources/regGrammar.cpp.s:
+	$(MAKE) -f CMakeFiles/DFA.dir/build.make CMakeFiles/DFA.dir/sources/regGrammar.cpp.s
+.PHONY : sources/regGrammar.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +309,9 @@ help:
 	@echo "... sources/exceptions/faExceptions.o"
 	@echo "... sources/exceptions/faExceptions.i"
 	@echo "... sources/exceptions/faExceptions.s"
+	@echo "... sources/regGrammar.o"
+	@echo "... sources/regGrammar.i"
+	@echo "... sources/regGrammar.s"
 .PHONY : help
 
 
